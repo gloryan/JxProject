@@ -1,4 +1,4 @@
-angular.module('contactsMgr', ['ngRoute', 'ngSanitize'])
+angular.module('contactsMgr', ['ngRoute', 'ngSanitize', 'mgcrea.ngStrap'])
 
 /*-----------------------------------
 | Routes
@@ -152,12 +152,25 @@ angular.module('contactsMgr', ['ngRoute', 'ngSanitize'])
 | Index Controller
 ------------------------------------*/
 
-.controller('indexCtrl', function($scope, contacts){
+.controller('indexCtrl', function($scope, contacts, $alert){
 
     $scope.contacts = contacts.get();
 
+    $scope.modal = {
+        title: 'Hello'
+    };
+
+    var alert = $alert({
+        title: 'Success!',
+        content: 'The contact was deleted successfully.',
+        type: 'success',
+        container: '#alertContainer',
+        show: false
+    });
+
     $scope.delete = function(index){
         contacts.destroy(index);
+        alert.show();
     };
 
 })
@@ -166,11 +179,20 @@ angular.module('contactsMgr', ['ngRoute', 'ngSanitize'])
 | Add Controller
 ------------------------------------*/
 
-.controller('addCtrl', function($scope, contacts){
+.controller('addCtrl', function($scope, contacts, $alert){
+
+    var alert = $alert({
+        title: 'Success!',
+        content: 'The contact was added successfully.',
+        type: 'success',
+        container: '#alertContainer',
+        show: false
+    });
+
     $scope.submit = function(){
         contacts.set($scope.contact);
         $scope.contact = null;
-        $scope.added = true;
+        alert.show();
     };
 })
 
@@ -194,6 +216,62 @@ angular.module('contactsMgr', ['ngRoute', 'ngSanitize'])
 
     $scope.pageClass = function(path){
         return (path == $location.path()) ? 'active' : '';
+    };
+
+})
+
+/*-----------------------------------
+| Demo Controller
+------------------------------------*/
+
+.controller('demoCtrl', function($scope, $alert){
+
+    /*-----------------------------------
+    | Modal
+    ------------------------------------*/
+
+    $scope.modal = {
+        title: 'Modal Title',
+        content: 'Modal content'
+    };
+
+    /*-----------------------------------
+    | Tooltip
+    ------------------------------------*/
+
+    $scope.tooltip = {
+        title: 'Tooltip Title'
+    };
+
+    /*-----------------------------------
+    | Popover
+    ------------------------------------*/
+
+    $scope.popover = {
+        title: 'Title',
+        content: 'Popover content'
+    };
+
+    /*-----------------------------------
+    | Alert
+    ------------------------------------*/
+
+    $scope.alert = {
+        title: 'Title',
+        content: 'Alert content',
+        type: 'success'
+    };
+
+    var alert = $alert({
+        title: 'Alert Title!',
+        content: 'Here\'s some content.',
+        type: 'danger',
+        container: '#alertContainer',
+        show: false
+    });
+
+    $scope.showAlert = function(){
+        alert.show();
     };
 
 });
