@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="footballMgr" ng-controller="AppController">
+<head>
+  <meta charset="utf-8">
+  <title>Football Lineup</title>
+  <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/angular-motion.min.css">
+  <script type="text/javascript" src="assets/js/shared/jquery.min.js"></script>
+  <script type="text/javascript" src="assets/js/shared/bootstrap.min.js"></script>
+  <script type="text/javascript" src="assets/js/shared/angular.min.js"></script>
+  <script type="text/javascript" src="assets/js/shared/angular-route.min.js"></script>
+  <script type="text/javascript" src="assets/js/shared/angular-sanitize.min.js"></script>
+  <script type="text/javascript" src="assets/js/shared/angular-strap.min.js"></script>
+  <script type="text/javascript" src="assets/js/shared/angular-strap.tpl.min.js"></script>
+  <script type="text/javascript" src="assets/js/shared/angular-animate.min.js"></script>
+
+  <script type="text/javascript" src="assets/js/app.js"></script>
+  <script type="text/javascript" src="assets/js/controllers/AppController.js"></script>
+  <script type="text/javascript" src="assets/js/controllers/HomeController.js"></script>
+  <script type="text/javascript" src="assets/js/controllers/InfoController.js"></script>
+  <script type="text/javascript" src="assets/js/controllers/AddController.js"></script>
+  <script type="text/javascript" src="assets/js/services/players.js"></script>
+  <script type="text/javascript" src="assets/js/directives/gravatar.js"></script>
+  <script type="text/javascript" src="assets/js/directives/editable.js"></script>
+
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js"></script>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse" role="navigation">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#nav-toggle">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Football Lineup</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="nav-toggle">
+        <ul class="nav navbar-nav">
+            <li ng-class="pageClass('/')"><a href="/">Squad</a></li>
+            <li ng-class="pageClass('/add-player')"><a href="/add-player">Add Player</a></li>
+        </ul>
+        <form class="navbar-form navbar-right" role="search">
+          <input id="searchBox" type="text" class="form-control" placeholder="Player Search" ng-model="search.name" ng-keyup="startSearch()">
+        </form>
+    </div>
+</nav>
+
+<div class="container">
+
+    <ng-view></ng-view>
+
+</div>
+
+</body>
+</html>

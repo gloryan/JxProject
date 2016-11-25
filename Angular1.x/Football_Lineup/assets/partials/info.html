@@ -1,0 +1,58 @@
+<div class="page-header row">
+	<h1><div gravatar email="{{player.email}}" size="50" class="img-circle"></div> {{player.name}}</h1>
+</div>
+
+<div class="form-horizontal">
+
+	<div class="row">
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Name</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="player.name"></p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Team</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="player.team" field-type="tel"></p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Preffered Position</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="player.position" field-type="select"></p>
+				</div>
+			</div>
+
+		</div>
+		<div class="col-xs-6">
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Email Address</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="player.email" field-type="email"></p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Phone</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="player.phone"></p>
+				</div>
+			</div>
+
+			<div class="form-group">
+				<label for="name" class="col-sm-4 control-label">Notes</label>
+				<div class="col-sm-8">
+					<p class="form-control-static" editable="player.notes" field-type="textarea"></p>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+</div>

@@ -1,0 +1,33 @@
+<div class="page-header">
+	<h1>Squad</h1>
+</div>
+
+<div id="alertContainer"></div>
+<div class="col-md-8">
+	<div class="table-responsive">
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th width=200>Name</th>
+					<th width=200>Team</th>
+					<th width=200>Preffered Position</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="player in players track by $index | filter:search" ng-class="{'success': player === selectedItem}"  ng-click="selectListItem(player)">
+					<td>{{player.name}}</td>
+					<td>{{player.team}}</td>
+					<td>{{player.position}}</td>
+					<td>
+						<a href="/info/{{$index}}" class="btn btn-default btn-xs">View</a>
+						<button class="btn btn-danger btn-xs" ng-click="delete($index)">Delete</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>
+<div class="col-md-4">
+	<canvas id="capaChart" width=400 height=400></canvas>
+</div>
